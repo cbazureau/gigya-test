@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Logout</title>
+    <script type="text/javascript" src="https://cdns.eu1.gigya.com/js/gigya.js?apiKey=3_03PvHm62oV14H7xoMxpBiVFFn-cBcQ1FAQOwcxDzYYr0nyx17r3IaHfr-jYyHWgx"></script>
+    <script type="text/javascript">
+    
+        function doLogoutGigya() {
+			document.getElementById('results_logout').innerHTML = 'Logout in progress ...';
+	        let params = {
+	           "callback": response => document.getElementById('results_logout').innerHTML = JSON.stringify(response, null, 2)
+	        };
+	        gigya.socialize.logout(params);
+	    }
+        
+		function doGetJWTGigya() {
+			document.getElementById('results').innerHTML = 'JWT in progress ...';
+			let params = {
+                expiration: 600,
+				callback: response => document.getElementById('results').innerHTML = JSON.stringify(response, null, 2)
+	        };
+			gigya.accounts.getJWT(params);
+		}
+	</script>
+</head>
+<body onload="doGetJWTGigya()">
+    <h1>Common Logout</h1>
+    <h2>getJWT</h2>
+    <pre id="results"></pre>
+    <h2>Logout</h2>
+    <div>
+        <button onclick="javascript:doLogoutGigya()">Logout</button><br />
+    </div>
+    <pre id="results_logout"></pre>
+    <h2>Links</h2>
+    <div>
+        <ul>
+            <li><a href="https://www.lebeaujeu.com/gigya/fr/fr/login.html">Common Login</a></li>
+            <li><a href="https://www.lebeaujeu.com/gigya/fr/fr/logout.html">Common Logout</a></li>
+            <li><a href="https://www.bazureau.com/gigya/home.html">Renault - Brandwebsite</a></li>
+            <li><a href="https://cedric.bazureau.com/gigya/home.html">Renault - MYRenault</a></li>
+            <li><a href="https://un-ou-une.fr/gigya/home.html">Dacia - MYDacia</a></li>
+        </ul>
+    </div>
+
+ </body>
+ </html>
