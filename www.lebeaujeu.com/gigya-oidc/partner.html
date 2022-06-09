@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[OIDC] Partner Page</title>
+    <script>
+        function loginPage() {
+            window.location.href="https://fidm.eu1.gigya.com/oidc/op/v1.0/3_A0ls8LHd13QJi7KaQJrj_m94Lk6tlV6ZWuxdAFua3Rizk_81LrpRbYMMuumTKLMd/authorize?ui_locales=ro-RO&client_id=CZWEEY3dYhTc69nOYxoxvs9O&redirect_uri=https://www.lebeaujeu.com/&scope=openid+email+personId&response_type=code+id_token+token&response_mode=login&nonce="+Math.random();
+        }
+    </script>
+</head>
+<body onload="doGetJWTGigya()">
+    <h1>[OIDC] Partner Page</h1>
+    <h2>Links</h2>
+    <div>
+        <ul>
+            <li><a href="#" onclick="javascript:loginPage()">Login with IdConnect</a></li>
+        </ul>
+    </div>
+ </body>
+ </html>
