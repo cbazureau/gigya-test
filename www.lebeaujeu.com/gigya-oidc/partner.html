@@ -6,11 +6,20 @@
     <title>[OIDC] Partner Page</title>
     <script>
         function loginPage() {
-            window.location.href="https://fidm.eu1.gigya.com/oidc/op/v1.0/3_A0ls8LHd13QJi7KaQJrj_m94Lk6tlV6ZWuxdAFua3Rizk_81LrpRbYMMuumTKLMd/authorize?ui_locales=ro-RO&client_id=CZWEEY3dYhTc69nOYxoxvs9O&redirect_uri=https://www.lebeaujeu.com/&scope=openid+email+personId&response_type=code+id_token+token&response_mode=login&nonce="+Math.random();
+            const url = new URL("https://fidm.eu1.gigya.com/oidc/op/v1.0/3_A0ls8LHd13QJi7KaQJrj_m94Lk6tlV6ZWuxdAFua3Rizk_81LrpRbYMMuumTKLMd/authorize");
+            url.searchParams.set('ui_locales', 'ro-RO')
+            url.searchParams.set('client_id', 'CZWEEY3dYhTc69nOYxoxvs9O')
+            url.searchParams.set('redirect_uri', 'https://www.lebeaujeu.com/')
+            // url.searchParams.set('scope', 'openid+email+personId') // can't do that due to encoding
+            // url.searchParams.set('response_type', 'code+id_token+token') // can't do that due to encoding
+            url.searchParams.set('response_mode', 'login')
+            url.searchParams.set('nonce', Math.random())
+            // window.location.href = url.toString()+'&scope=openid+email+personId&response_type=code+id_token+token';
+            window.location.href = url.toString()+'&scope=openid+email+personId&response_type=code';
         }
     </script>
 </head>
-<body onload="doGetJWTGigya()">
+<body>
     <h1>[OIDC] Partner Page</h1>
     <h2>Links</h2>
     <div>
